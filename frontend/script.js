@@ -16,6 +16,7 @@ function setListState(state, text) {
   list.hidden = state !== 'success';
 }
 function renderApplications(applications) {
+  list.replaceChildren();
   for (const application of applications) {
     const article = document.createElement('article');
     article.className = 'application-card';
@@ -76,7 +77,7 @@ applicationForm.addEventListener('reset', () => {
 applicationForm.addEventListener('submit', async event => {
   event.preventDefault();
   const application = formValues();
-  if (application.name && (Array.from(application.name).length < 2 || Array.from(application.name).length > 60)) {
+  if (!application.name || Array.from(application.name).length < 2 || Array.from(application.name).length > 60) {
     applicationForm.elements.name.setCustomValidity('Имя должно содержать от 2 до 60 символов');
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(application.email)) {
