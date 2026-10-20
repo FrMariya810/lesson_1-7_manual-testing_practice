@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Веб-мастерская · API-лаборатория</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/api-lab.js"></script>
+</head>
+<body class="api-page">
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header class="site-header"><div class="shell header-inner">
+    <a class="brand" href="/"><span class="brand-symbol" aria-hidden="true">W.</span><span>Веб-мастерская<small>Учимся создавать веб</small></span></a>
+    <nav aria-label="Основная навигация"><a href="/">Заявки</a><a href="/api-lab.html" aria-current="page">API-лаборатория</a><a href="/CONTRACT.md" target="_blank" rel="noopener">Требования ↗</a></nav>
+  </div></header>
+  <main id="main" class="shell">
+    <section class="api-intro"><p class="eyebrow">Проверка контракта / ручные запросы</p><h1>По ту сторону<br>интерфейса<span>.</span></h1><p class="lead">Составьте запрос. Прочитайте ответ.<br>Решение о правильности результата принимаете вы.</p></section>
+    <div class="api-workspace">
+      <section class="request-panel" aria-labelledby="request-title">
+        <p class="eyebrow">01 / Request</p><h2 id="request-title">Запрос</h2>
+        <form id="request-form">
+          <div class="request-line">
+            <div><label for="method">Метод</label><select id="method"><option>GET</option><option>POST</option></select></div>
+            <div><label for="path">Путь</label><input id="path" value="/applications" required spellcheck="false"></div>
+          </div>
+          <p class="request-base">Адрес сервера: <code id="base-url"></code></p>
+          <label for="request-body">JSON-тело <small>для POST</small></label>
+          <textarea id="request-body" rows="9" spellcheck="false">{
+  "name": "Анна",
+  "email": "anna@example.com",
+  "topic": "html"
+}</textarea>
+          <p class="muted">POST отправляется с <code>Content-Type: application/json</code>. GET не отправляет тело.</p>
+          <button id="send-request" class="button button-primary" type="submit">Отправить запрос <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="client-hint">Для проверки сохранения скопируйте id из ответа и выполните GET /applications/этот-id.</p>
+      </section>
+      <section class="response-panel" aria-labelledby="response-title">
+        <p class="eyebrow">02 / Response</p><h2 id="response-title">Ответ</h2>
+        <p id="response-status" class="response-status" role="status" aria-live="polite">Запрос ещё не отправлен</p>
+        <dl class="response-meta"><dt>Запрос</dt><dd id="sent-request">—</dd><dt>Версия / режим</dt><dd id="response-version">—</dd><dt>Content-Type</dt><dd id="response-type">—</dd></dl>
+        <h3>Тело ответа</h3><pre id="response-body" tabindex="0" aria-label="Тело ответа API">Здесь появится ответ сервера.</pre>
+        <button class="text-button" id="download-evidence" disabled>Скачать запрос и ответ</button>
+        <p class="muted">Файл содержит факты запроса. Ожидаемый результат и вывод добавьте в свой отчёт.</p>
+      </section>
+    </div>
+    <section id="lab-controls" class="lab-controls" aria-label="Условия учебной проверки"></section>
+  </main>
+  <footer class="shell footer"><span>Тот же API · независимый клиент</span><span data-version>Версия загружается</span></footer>
+</body>
+</html>

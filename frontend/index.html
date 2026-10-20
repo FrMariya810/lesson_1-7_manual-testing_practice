@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Веб-мастерская · Заявки</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/"><span class="brand-symbol" aria-hidden="true">W.</span><span>Веб-мастерская<small>Учимся создавать веб</small></span></a>
+      <nav aria-label="Основная навигация">
+        <a href="/" aria-current="page">Заявки</a>
+        <a href="/api-lab.html">API-лаборатория</a>
+        <a href="/CONTRACT.md" target="_blank" rel="noopener">Требования ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="shell">
+    <section class="intro">
+      <div><p class="eyebrow">Открытая мастерская / осень 2026</p><h1>Идеи становятся<br>интерфейсами<span>.</span></h1><p class="lead">Выберите тему и оставьте заявку.<br>Будем разбирать веб на понятных примерах.</p></div>
+      <aside class="intro-aside"><span class="edition">01—03</span><p>HTML и CSS<br>JavaScript и DOM<br>HTTP и API</p><small>Три направления.<br>Одна мастерская.</small></aside>
+    </section>
+    <div class="workspace">
+      <section class="form-panel" aria-labelledby="form-title">
+        <p class="eyebrow">01 / Присоединиться</p>
+        <h2 id="form-title">Ваша заявка</h2>
+        <p class="muted">Все поля обязательны. Используйте вымышленные данные.</p>
+        <form id="application-form">
+          <label for="name">Имя <small>от 2 до 60 символов</small></label>
+          <input id="name" name="name" autocomplete="off" minlength="2" maxlength="60" placeholder="Например, Анна">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="off" required maxlength="120" placeholder="anna@example.com">
+          <label for="topic">Тема мастерской</label>
+          <select id="topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="html">HTML и CSS</option>
+            <option value="javascript">JavaScript и DOM</option>
+            <option value="api">HTTP и API</option>
+          </select>
+          <button class="button button-primary submit-button" id="submit-button" type="submit">Отправить заявку <span aria-hidden="true">↗</span></button>
+          <p class="status" id="submit-status" role="status" aria-live="polite">Заявка появится в списке после отправки.</p>
+          <div class="draft-actions">
+            <button type="button" class="text-button" id="save-draft">Сохранить черновик</button>
+            <button type="button" class="text-button" id="clear-draft">Удалить черновик</button>
+          </div>
+          <p class="draft-status muted" id="draft-status" role="status">Черновик хранится только в этом браузере.</p>
+        </form>
+      </section>
+      <section class="list-panel" aria-labelledby="list-title">
+        <div class="list-heading"><div><p class="eyebrow">02 / Участники</p><h2 id="list-title">Заявки <span id="application-count" class="count">—</span></h2></div><button id="refresh-button" class="button button-secondary">Обновить список</button></div>
+        <p id="list-status" class="list-status" role="status" aria-live="polite">Загружаем заявки…</p>
+        <div id="applications" class="applications" aria-label="Список заявок"></div>
+      </section>
+    </div>
+    <section id="lab-controls" class="lab-controls" aria-label="Условия учебной проверки"></section>
+  </main>
+  <footer class="shell footer"><span>Веб-мастерская · учебный продукт</span><span data-version>Версия загружается</span></footer>
+</body>
+</html>

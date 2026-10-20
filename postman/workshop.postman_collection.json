@@ -1,0 +1,85 @@
+{
+  "info": {
+    "name": "Веб-мастерская · ручная проверка",
+    "description": "Без тестовых скриптов. Сравните ответы с CONTRACT.md. applicationId перенесите из ответа POST вручную.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "applicationId",
+      "value": "REPLACE_WITH_CREATED_ID",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 · Список заявок",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/applications"
+      },
+      "response": []
+    },
+    {
+      "name": "02 · Создать заявку",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/applications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Анна\",\n  \"email\": \"anna@example.com\",\n  \"topic\": \"html\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03 · Проверить созданный id (вписать вручную)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/applications/{{applicationId}}"
+      },
+      "response": []
+    },
+    {
+      "name": "04 · Неверный ввод",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/applications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Анна\",\n  \"email\": \"anna@example.com\",\n  \"topic\": \"unknown\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    }
+  ]
+}

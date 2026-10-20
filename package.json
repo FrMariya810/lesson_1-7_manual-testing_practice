@@ -1,0 +1,12 @@
+{
+  "name": "lesson-1-7-manual-testing-practice",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Учебный стенд для ручного тестирования интерфейса и API",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "start": "node backend/server.mjs",
+    "dev": "node --watch backend/server.mjs"
+  }
+}

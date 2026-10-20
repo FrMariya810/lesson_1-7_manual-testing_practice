@@ -1,0 +1,5 @@
+[
+  { "id": "1", "name": "Анна", "email": "anna@example.com", "topic": "html", "createdAt": "2026-10-20T09:00:00.000Z" },
+  { "id": "2", "name": "Михаил", "email": "mikhail@example.com", "topic": "javascript", "createdAt": "2026-10-20T09:05:00.000Z" },
+  { "id": "3", "name": "София", "email": "sofia@example.com", "topic": "html", "createdAt": "2026-10-20T09:10:00.000Z" }
+]
