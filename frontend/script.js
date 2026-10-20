@@ -16,6 +16,7 @@ function setListState(state, text) {
   list.hidden = state !== 'success';
 }
 function renderApplications(applications) {
+  list.replaceChildren();
   for (const application of applications) {
     const article = document.createElement('article');
     article.className = 'application-card';
